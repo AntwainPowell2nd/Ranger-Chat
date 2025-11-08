@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Power Rangers Decryption Viewer</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      background-image: url('/static/power_background.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .app-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      color: #ff0000;
+      text-shadow: 0 0 15px #ffff00, 0 0 30px #ff0000;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #ffff00;
+    }
+
+    .chat-box {
+      max-width: 700px;
+      margin: auto;
+      background: linear-gradient(135deg, #ff0000, #000000);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+      border: 3px solid #ffff00;
+    }
+
+    .chat-box h2 {
+      font-size: 2rem;
+      color: #ffff00;
+      text-shadow: 0 0 10px #ff0000;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      margin: 15px 0;
+      padding: 15px;
+      background: #ffffff;
+      border-left: 8px solid #ff0000;
+      border-radius: 10px;
+      color: #000000;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+
+    .message strong {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <h1>Decryption Command Center</h1>
+    <div class="chat-box">
+      <h2>Decrypted Messages</h2>
+      {% for msg in messages %}
+        <div class="message">
+          <strong>{{ msg.label }}:</strong><br>{{ msg.text }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
